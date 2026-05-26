@@ -12,14 +12,15 @@ class Applicant:
         self.has_pregnant = has_pregnant    #pregnant/breastfeeding mother
         self.housing = housing
 
-        @property
-        def income_per_person(self):
-            if self.family_size <= 0:
-                return 0
-            return self.monthly_income / self.family_size
-        @property
-        def is_small_family(self):
-            return self.family_size <= 2
+    @property
+    def income_per_person(self):
+        if self.family_size <= 0:
+            return 0
+        return self.monthly_income / self.family_size
+    
+    @property
+    def is_small_family(self):
+        return self.family_size <= 2
         
 class Benefit:
     def __init__(self):

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Results — Divisahana · දිවිසහන</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue:      #1a56db;
+    --blue-dark: #1140a6;
+    --blue-lt:   #e8f0fe;
+    --green:     #0f9e6e;
+    --green-lt:  #e6f7f2;
+    --green-dark:#065f46;
+    --red:       #dc2626;
+    --red-lt:    #fef2f2;
+    --gold:      #b45309;
+    --gold-lt:   #fef3c7;
+    --border:    #e5e7eb;
+    --bg:        #f3f6ff;
+    --text:      #111827;
+    --mid:       #374151;
+    --soft:      #6b7280;
+    --white:     #ffffff;
+    --radius:    14px;
+    --radius-sm: 9px;
+    --shadow:    0 4px 24px rgba(26,86,219,0.10);
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  /* HEADER */
+  header { background: var(--blue); box-shadow: 0 2px 12px rgba(26,86,219,0.3); }
+  .header-inner { max-width: 620px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; gap: 14px; }
+  .logo { width: 42px; height: 42px; border-radius: 10px; background: rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .logo svg { width: 24px; height: 24px; }
+  .header-text h1 { font-size: 18px; font-weight: 700; color: #fff; }
+  .header-text p  { font-size: 12px; color: rgba(255,255,255,0.72); font-family: 'Noto Sans Sinhala', sans-serif; }
+
+  main { max-width: 620px; margin: 0 auto; padding: 28px 16px 80px; }
+
+  /* HERO — FOUND BENEFITS */
+  .hero-found {
+    background: linear-gradient(135deg, var(--green), #0d8a61);
+    border-radius: var(--radius); padding: 30px 26px;
+    text-align: center; margin-bottom: 20px; color: white;
+    box-shadow: 0 4px 24px rgba(15,158,110,0.3);
+  }
+  .hero-tick { width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 30px; }
+  .hero-found h2 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+  .hero-found p  { font-size: 14px; opacity: 0.9; line-height: 1.5; }
+  .hero-found .si { font-family: 'Noto Sans Sinhala', sans-serif; font-size: 14px; opacity: 0.85; margin-top: 6px; }
+
+  /* HERO — NO BENEFITS */
+  .hero-none {
+    background: var(--gold-lt); border: 1px solid #fcd34d;
+    border-radius: var(--radius); padding: 28px 26px;
+    text-align: center; margin-bottom: 20px;
+  }
+  .hero-none h2 { font-size: 20px; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
+  .hero-none p  { font-size: 14px; color: var(--mid); line-height: 1.6; }
+
+  /* SUMMARY ROW */
+  .summary-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+  .summary-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; text-align: center; box-shadow: var(--shadow-sm); }
+  .summary-label { font-size: 11px; color: var(--soft); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 5px; font-weight: 600; }
+  .summary-value { font-size: 18px; font-weight: 700; color: var(--text); }
+  .summary-sub   { font-size: 11px; color: var(--soft); margin-top: 2px; }
+
+  /* SECTION TITLE */
+  .section-title { font-size: 13px; font-weight: 700; color: var(--soft); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+
+  /* BENEFIT CARD */
+  .benefit-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px;
+    margin-bottom: 14px; box-shadow: var(--shadow-sm);
+  }
+  .benefit-card.priority { border-left: 4px solid var(--green); }
+  .benefit-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+  .benefit-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--blue-lt); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+  .benefit-name   { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .benefit-name-si { font-family: 'Noto Sans Sinhala', sans-serif; font-size: 13px; color: var(--soft); margin-bottom: 6px; }
+  .amount-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--green-lt); color: var(--green-dark); border-radius: 20px; padding: 4px 12px; font-size: 13px; font-weight: 700; }
+  .tier-badge { display: inline-flex; align-items: center; background: var(--blue-lt); color: var(--blue-dark); border-radius: 20px; padding: 4px 12px; font-size: 12px; font-weight: 600; margin-left: 6px; }
+
+  /* WHERE TO GO */
+  .where-box { background: var(--blue-lt); border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 14px; display: flex; gap: 12px; align-items: flex-start; }
+  .where-box svg { flex-shrink: 0; margin-top: 2px; }
+  .where-title { font-size: 12px; font-weight: 700; color: var(--blue-dark); margin-bottom: 2px; }
+  .where-text  { font-size: 13px; color: var(--mid); }
+  .hotline-text { font-size: 12px; color: var(--blue); font-weight: 600; margin-top: 2px; }
+
+  /* STEPS */
+  .steps-label { font-size: 11px; font-weight: 700; color: var(--soft); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; padding-top: 14px; border-top: 1px solid var(--border); }
+  .step-item { display: flex; gap: 10px; margin-bottom: 9px; align-items: flex-start; }
+  .step-num  { width: 24px; height: 24px; border-radius: 50%; background: var(--blue); color: white; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .step-txt  { font-size: 13px; color: var(--mid); line-height: 1.6; }
+  .step-note { background: var(--gold-lt); border-radius: var(--radius-sm); padding: 8px 12px; font-size: 12px; color: var(--gold); margin-top: 8px; }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+
+  /* DS CARD */
+  .ds-card { background: var(--blue-lt); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 16px; }
+  .ds-card h3 { font-size: 14px; font-weight: 700; color: var(--blue-dark); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .ds-card p  { font-size: 13px; color: var(--mid); line-height: 1.5; margin-bottom: 4px; }
+
+  /* ACTION BUTTONS */
+  .wa-btn {
+    width: 100%; padding: 15px; background: #25D366; color: white;
+    border: none; border-radius: var(--radius-sm);
+    font-size: 15px; font-weight: 700; font-family: 'DM Sans', sans-serif;
+    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+    margin-bottom: 10px; text-decoration: none;
+  }
+  .wa-btn:hover { background: #1da851; }
+  .back-btn {
+    width: 100%; padding: 14px; background: transparent; color: var(--blue);
+    border: 1.5px solid var(--blue); border-radius: var(--radius-sm);
+    font-size: 14px; font-weight: 600; font-family: 'DM Sans', sans-serif;
+    cursor: pointer; text-align: center; text-decoration: none; display: block;
+  }
+  .back-btn:hover { background: var(--blue-lt); }
+
+  @media (max-width: 420px) {
+    .summary-row { grid-template-columns: 1fr 1fr; }
+    .benefit-card { padding: 18px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+        <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+      </svg>
+    </div>
+    <div class="header-text">
+      <h1>Divisahana · දිවිසහන</h1>
+      <p>ඔබේ ප්‍රතිඵල · Your Results</p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  {% if count > 0 %}
+
+  <!-- ── BENEFITS FOUND ── -->
+  <div class="hero-found">
+    <div class="hero-tick">✓</div>
+    <h2>Great news! You qualify for {{ count }} benefit{{ 's' if count > 1 else '' }}</h2>
+    <p>Based on your answers, your family in <strong>{{ district }}</strong> may be eligible for the following government welfare programs.</p>
+    <p class="si">ඔබේ පවුලට රාජ්‍ය ප්‍රතිලාභ {{ count }}ක් ලැබිය හැකිය</p>
+  </div>
+
+  <!-- SUMMARY ROW -->
+  <div class="summary-row">
+    <div class="summary-card">
+      <div class="summary-label">Benefits found</div>
+      <div class="summary-value" style="color: var(--green);">{{ count }}</div>
+      <div class="summary-sub">Programs</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">Your district</div>
+      <div class="summary-value" style="font-size:14px;">{{ district }}</div>
+      <div class="summary-sub">Location</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">Income / person</div>
+      <div class="summary-value" style="font-size:14px;">Rs. {{ income_pp }}</div>
+      <div class="summary-sub">Per month</div>
+    </div>
+  </div>
+
+  <!-- BENEFIT CARDS -->
+  <div class="section-title">Your eligible benefits · ලැබිය හැකි ප්‍රතිලාභ</div>
+
+  {% for benefit in benefits %}
+  <div class="benefit-card priority">
+
+    <div class="benefit-top">
+      <div class="benefit-icon">{{ benefit.icon }}</div>
+      <div style="flex:1;">
+        <div class="benefit-name">{{ benefit.name }}</div>
+        <div class="benefit-name-si">{{ benefit.name_si }}</div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
+          <span class="amount-badge">
+            💰 {{ benefit.amount }}
+          </span>
+          {% if benefit.tier is defined and benefit.tier %}
+          <span class="tier-badge">{{ benefit.tier }}</span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- WHERE TO GO -->
+    <div class="where-box">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      <div>
+        <div class="where-title">Where to apply</div>
+        <div class="where-text">{{ benefit.where }}</div>
+        {% if benefit.hotline %}
+        <div class="hotline-text">📞 Hotline: {{ benefit.hotline }}</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- STEPS -->
+    <div class="steps-label">📋 How to apply step by step · අයදුම් කරන ආකාරය</div>
+    {% for step in benefit.steps %}
+    <div class="step-item">
+      <div class="step-num">{{ loop.index }}</div>
+      <div class="step-txt">{{ step }}</div>
+    </div>
+    {% endfor %}
+
+    {% if benefit.note is defined and benefit.note %}
+    <div class="step-note">⚠️ {{ benefit.note }}</div>
+    {% endif %}
+
+  </div>
+  {% endfor %}
+
+  {% else %}
+
+  <!-- ── NO BENEFITS FOUND ── -->
+  <div class="hero-none">
+    <div style="font-size:40px; margin-bottom:14px;">🔍</div>
+    <h2>No benefits matched your answers</h2>
+    <p>Based on the information you provided, your family does not appear to qualify for the major welfare programs at this time. This may change if your situation changes.</p>
+    <p style="margin-top:12px; font-family:'Noto Sans Sinhala',sans-serif; font-size:13px; color:var(--soft);">ඔබ ලබා දුන් තොරතුරු අනුව, ප්‍රධාන ප්‍රතිලාභ සඳහා සුදුසුකමක් නොමැත.</p>
+  </div>
+
+  {% endif %}
+
+  <hr class="divider">
+
+  <!-- DIVISIONAL SECRETARIAT BOX -->
+  <div class="ds-card">
+    <h3>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16M3 21h18M9 21V9h6v12"/></svg>
+      Visit your Divisional Secretariat
+    </h3>
+    <p><strong>{{ district }} Divisional Secretariat</strong> is your main point of contact for all welfare applications.</p>
+    <p style="margin-top:6px;">Bring your <strong>National Identity Card (NIC)</strong> to every visit. Applications are free.</p>
+    <p style="margin-top:6px; color: var(--blue); font-weight:600;">📞 National Welfare Hotline: 1924</p>
+  </div>
+
+  <!-- SHARE + BACK -->
+  <a class="wa-btn"
+     href="https://wa.me/?text=I%20found%20my%20welfare%20eligibility%20using%20Divisahana.%20Check%20yours%20at%20divisahana.lk"
+     target="_blank">
+    📲 Share Divisahana with someone who needs it
+  </a>
+
+  <a class="back-btn" href="/">
+    ← Check again for another family
+  </a>
+
+</main>
+</body>
+</html>

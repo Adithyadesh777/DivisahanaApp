@@ -24,7 +24,7 @@ def check():
 
     district       = request.form.get("district", "")
     family_size    = request.form.get("family_size", 1)
-    monthly_income = request.form.get("monthly_income", 0)
+    monthly_income = float(request.form.get("monthly_income", 0))
     employment     = request.form.get("employment", "")
     housing        = request.form.get("housing", "")
  
