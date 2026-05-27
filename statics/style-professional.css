@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Divisahana — දිවිසහන | Welfare Checker</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
 /* ============================================================
    DIVISAHANA · දිවිසහන
    Professional Stylesheet with Animations
@@ -158,15 +150,6 @@ body {
   }
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -207,7 +190,6 @@ header {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  animation: float 3s ease-in-out infinite;
   backdrop-filter: blur(10px);
 }
 
@@ -349,7 +331,6 @@ main {
   font-size: 20px;
   margin-bottom: 4px;
   display: block;
-  animation: float 3s ease-in-out infinite;
 }
 
 .feature .fl {
@@ -959,7 +940,6 @@ input[type='number']:focus {
   justify-content: center;
   font-size: 24px;
   flex-shrink: 0;
-  animation: float 3s ease-in-out infinite;
 }
 
 .benefit-name {
@@ -1021,7 +1001,6 @@ input[type='number']:focus {
 .where-box svg {
   flex-shrink: 0;
   margin-top: 2px;
-  animation: float 3s ease-in-out infinite;
 }
 
 .where-title {
@@ -1130,10 +1109,6 @@ input[type='number']:focus {
   display: flex;
   align-items: center;
   gap: 8px;
-}
-
-.ds-card h3 svg {
-  animation: float 3s ease-in-out infinite;
 }
 
 .ds-card p {
@@ -1364,223 +1339,3 @@ input[type='number']:focus {
     background: white;
   }
 }
-</style>
-</head>
-<body>
-
-<header>
-  <div class="header-inner">
-    <div class="logo">
-      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-        <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-      </svg>
-    </div>
-    <div class="header-text">
-      <h1>Divisahana · දිවිසහන</h1>
-      <p>රාජ්‍ය ප්‍රතිලාභ සොයා ගැනීම</p>
-    </div>
-  </div>
-</header>
-
-<main>
-
-  <!-- WELCOME BANNER -->
-  <div class="welcome">
-    <div class="welcome-icon">📋</div>
-    <h2>Find your welfare benefits</h2>
-    <p>Answer 7 simple questions. We check all Sri Lanka government welfare programs and tell you exactly which ones your family qualifies for — and how to apply.</p>
-    <div class="welcome-si">මෙම ප්‍රශ්න 7 ට පිළිතුරු දීමෙන් ඔබේ පවුලට ලැබිය හැකි සියලු රාජ්‍ය ප්‍රතිලාභ සොයා ගත හැක.</div>
-    <div class="features">
-      <div class="feature"><div class="fi">⏱️</div><div class="fl">2 minutes</div></div>
-      <div class="feature"><div class="fi">🔒</div><div class="fl">Free & private</div></div>
-      <div class="feature"><div class="fi">📋</div><div class="fl">Step-by-step guide</div></div>
-    </div>
-  </div>
-
-  <!-- THE FORM -->
-  <div class="form-card">
-    <h3>📝 Your Information · ඔබේ තොරතුරු</h3>
-
-    <form action="/check" method="POST">
-
-      <!-- Q1: DISTRICT -->
-      <div class="q-group" style="margin-top: 22px;">
-        <label class="q-label" for="district">
-          <span class="q-icon">📍</span> District <span class="required">*</span>
-        </label>
-        <div class="q-si">ඔබ ජීවත් වන දිස්ත්‍රික්කය</div>
-        <select name="district" id="district" required>
-          <option value="">— Select your district · දිස්ත්‍රික්කය තෝරන්න —</option>
-          {% for d in districts %}
-          <option value="{{ d }}">{{ d }}</option>
-          {% endfor %}
-        </select>
-      </div>
-
-      <!-- Q2: FAMILY SIZE -->
-      <div class="q-group">
-        <label class="q-label" for="family_size">
-          <span class="q-icon">👨‍👩‍👧‍👦</span> How many people live in your household? <span class="required">*</span>
-        </label>
-        <div class="q-si">ඔබේ නිවසේ ජීවත් වන මුළු පිරිස — ඔබ ද ඇතුළුව</div>
-        <div class="input-wrap">
-          <input type="number" name="family_size" id="family_size" min="1" max="20" placeholder="e.g. 4" required>
-          <span class="input-suffix">people · දෙනා</span>
-        </div>
-        <div class="q-hint">Include yourself, spouse, children, and parents living with you.</div>
-      </div>
-
-      <!-- Q3: MONTHLY INCOME -->
-      <div class="q-group">
-        <label class="q-label" for="monthly_income">
-          <span class="q-icon">💵</span> Total monthly household income <span class="required">*</span>
-        </label>
-        <div class="q-si">මාසික පවුල් ආදායම — සියලු ආදායම් ප්‍රභවයන් ඇතුළත්ව</div>
-        <div class="input-wrap">
-          <input type="number" name="monthly_income" id="monthly_income" min="0" max="500000" placeholder="e.g. 15000" required>
-          <span class="input-suffix">LKR / month</span>
-        </div>
-        <div class="q-hint">Include salary, farming income, daily wages, remittances. Enter 0 if no income. · ආදායමක් නොමැති නම් 0 ඇතුළු කරන්න.</div>
-      </div>
-
-      <!-- Q4: EMPLOYMENT -->
-      <div class="q-group">
-        <label class="q-label">
-          <span class="q-icon">💼</span> Employment status <span class="required">*</span>
-        </label>
-        <div class="q-si">රැකියා තත්ත්වය</div>
-        <div class="radio-grid">
-          <label class="radio-opt">
-            <input type="radio" name="employment" value="employed" required>
-            <span class="radio-dot"></span>
-            <span class="radio-text">
-              <div class="radio-main">Employed — government or private sector</div>
-              <div class="radio-si">රාජ්‍ය හෝ පෞද්ගලික රැකියාවේ</div>
-            </span>
-          </label>
-          <label class="radio-opt">
-            <input type="radio" name="employment" value="self_employed">
-            <span class="radio-dot"></span>
-            <span class="radio-text">
-              <div class="radio-main">Self-employed or small business owner</div>
-              <div class="radio-si">ස්වයං රැකියා / කුඩා ව්‍යාපාරය</div>
-            </span>
-          </label>
-          <label class="radio-opt">
-            <input type="radio" name="employment" value="daily_wage">
-            <span class="radio-dot"></span>
-            <span class="radio-text">
-              <div class="radio-main">Daily wage worker or casual labour</div>
-              <div class="radio-si">එදිනෙදා ශ්‍රමය / කෙටිකාලීන රැකියා</div>
-            </span>
-          </label>
-          <label class="radio-opt">
-            <input type="radio" name="employment" value="unemployed">
-            <span class="radio-dot"></span>
-            <span class="radio-text">
-              <div class="radio-main">Unemployed or no income</div>
-              <div class="radio-si">රැකියා විරහිත / ආදායමක් නොමැති</div>
-            </span>
-          </label>
-        </div>
-      </div>
-
-      <!-- Q5: HOUSEHOLD MEMBERS -->
-      <div class="q-group">
-        <label class="q-label">
-          <span class="q-icon">🏥</span> Does your household include any of these? <span class="required">*</span>
-        </label>
-        <div class="q-si">ඔබේ පවුලේ කවරෙකු හෝ — අදාළ සියල්ල තෝරන්න</div>
-        <div class="checkbox-grid">
-          <label class="check-opt">
-            <input type="checkbox" name="has_elderly" value="1">
-            <span class="check-box"></span>
-            <span class="radio-text">
-              <div class="radio-main">👴 Elderly person aged 70 or above</div>
-              <div class="radio-si">වයස අවුරුදු 70 ඉක්මවූ වැඩිහිටියෙකු</div>
-            </span>
-          </label>
-          <label class="check-opt">
-            <input type="checkbox" name="has_disabled" value="1">
-            <span class="check-box"></span>
-            <span class="radio-text">
-              <div class="radio-main">♿ Person with a disability</div>
-              <div class="radio-si">ශාරීරික හෝ මානසික ආබාධිත පුද්ගලයෙකු</div>
-            </span>
-          </label>
-          <label class="check-opt">
-            <input type="checkbox" name="has_children" value="1">
-            <span class="check-box"></span>
-            <span class="radio-text">
-              <div class="radio-main">👶 Children under 18 years</div>
-              <div class="radio-si">අවුරුදු 18 ට අඩු දරුවන්</div>
-            </span>
-          </label>
-          <label class="check-opt">
-            <input type="checkbox" name="has_pregnant" value="1">
-            <span class="check-box"></span>
-            <span class="radio-text">
-              <div class="radio-main">🤱 Pregnant or breastfeeding mother</div>
-              <div class="radio-si">ගර්භිණී හෝ කිරිදෙන මව</div>
-            </span>
-          </label>
-        </div>
-      </div>
-
-      <!-- Q6: HOUSING -->
-      <div class="q-group">
-        <label class="q-label">
-          <span class="q-icon">🏠</span> Housing situation <span class="required">*</span>
-        </label>
-        <div class="q-si">නිවාස තත්ත්වය</div>
-        <div class="radio-grid">
-          <label class="radio-opt">
-            <input type="radio" name="housing" value="own" required>
-            <span class="radio-dot"></span>
-            <span class="radio-text">
-              <div class="radio-main">Own house (owned property)</div>
-              <div class="radio-si">ස්වකීය නිවස</div>
-            </span>
-          </label>
-          <label class="radio-opt">
-            <input type="radio" name="housing" value="rent">
-            <span class="radio-dot"></span>
-            <span class="radio-text">
-              <div class="radio-main">Renting a house</div>
-              <div class="radio-si">කුලී නිවසේ ජීවත් වීම</div>
-            </span>
-          </label>
-          <label class="radio-opt">
-            <input type="radio" name="housing" value="family">
-            <span class="radio-dot"></span>
-            <span class="radio-text">
-              <div class="radio-main">Living with family (no separate home)</div>
-              <div class="radio-si">පවුලේ නිවසේ ජීවත් වීම</div>
-            </span>
-          </label>
-          <label class="radio-opt">
-            <input type="radio" name="housing" value="none">
-            <span class="radio-dot"></span>
-            <span class="radio-text">
-              <div class="radio-main">No permanent home</div>
-              <div class="radio-si">ස්ථිර නිවසක් නොමැත</div>
-            </span>
-          </label>
-        </div>
-      </div>
-
-      <hr class="divider">
-
-      <!-- SUBMIT -->
-      <button type="submit" class="submit-btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-        Check My Eligibility · සුදුසුකම් පරීක්ෂා කරන්න
-      </button>
-      <p class="submit-note">🔒 Your information is private. Nothing is stored or shared.</p>
-
-    </form>
-  </div>
-
-</main>
-</body>
-</html>

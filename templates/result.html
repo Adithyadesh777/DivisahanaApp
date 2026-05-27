@@ -6,129 +6,799 @@
 <title>Your Results — Divisahana · දිවිසහන</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --blue:      #1a56db;
-    --blue-dark: #1140a6;
-    --blue-lt:   #e8f0fe;
-    --green:     #0f9e6e;
-    --green-lt:  #e6f7f2;
-    --green-dark:#065f46;
-    --red:       #dc2626;
-    --red-lt:    #fef2f2;
-    --gold:      #b45309;
-    --gold-lt:   #fef3c7;
-    --border:    #e5e7eb;
-    --bg:        #f3f6ff;
-    --text:      #111827;
-    --mid:       #374151;
-    --soft:      #6b7280;
-    --white:     #ffffff;
-    --radius:    14px;
-    --radius-sm: 9px;
-    --shadow:    0 4px 24px rgba(26,86,219,0.10);
-    --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+/* ============================================================
+   DIVISAHANA · දිවිසහන
+   Professional Stylesheet with Animations
+   ============================================================ */
+
+/* ============================================================
+   1. ROOT VARIABLES & RESET
+   ============================================================ */
+:root {
+  --blue:        #1a56db;
+  --blue-dark:   #1140a6;
+  --blue-lt:     #e8f0fe;
+  --green:       #0f9e6e;
+  --green-lt:    #e6f7f2;
+  --green-dark:  #065f46;
+  --red:         #dc2626;
+  --red-lt:      #fef2f2;
+  --gold:        #b45309;
+  --gold-lt:     #fef3c7;
+  --border:      #e5e7eb;
+  --bg:          #f3f6ff;
+  --text:        #111827;
+  --mid:         #374151;
+  --soft:        #6b7280;
+  --white:       #ffffff;
+  --radius:      14px;
+  --radius-sm:   9px;
+  --shadow:      0 4px 24px rgba(26, 86, 219, 0.1);
+  --shadow-sm:   0 2px 8px rgba(0, 0, 0, 0.06);
+  --transition:  all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   2. ANIMATIONS
+   ============================================================ */
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
-
-  /* HEADER */
-  header { background: var(--blue); box-shadow: 0 2px 12px rgba(26,86,219,0.3); }
-  .header-inner { max-width: 620px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; gap: 14px; }
-  .logo { width: 42px; height: 42px; border-radius: 10px; background: rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .logo svg { width: 24px; height: 24px; }
-  .header-text h1 { font-size: 18px; font-weight: 700; color: #fff; }
-  .header-text p  { font-size: 12px; color: rgba(255,255,255,0.72); font-family: 'Noto Sans Sinhala', sans-serif; }
-
-  main { max-width: 620px; margin: 0 auto; padding: 28px 16px 80px; }
-
-  /* HERO — FOUND BENEFITS */
-  .hero-found {
-    background: linear-gradient(135deg, var(--green), #0d8a61);
-    border-radius: var(--radius); padding: 30px 26px;
-    text-align: center; margin-bottom: 20px; color: white;
-    box-shadow: 0 4px 24px rgba(15,158,110,0.3);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  .hero-tick { width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 30px; }
-  .hero-found h2 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
-  .hero-found p  { font-size: 14px; opacity: 0.9; line-height: 1.5; }
-  .hero-found .si { font-family: 'Noto Sans Sinhala', sans-serif; font-size: 14px; opacity: 0.85; margin-top: 6px; }
+}
 
-  /* HERO — NO BENEFITS */
-  .hero-none {
-    background: var(--gold-lt); border: 1px solid #fcd34d;
-    border-radius: var(--radius); padding: 28px 26px;
-    text-align: center; margin-bottom: 20px;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  .hero-none h2 { font-size: 20px; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
-  .hero-none p  { font-size: 14px; color: var(--mid); line-height: 1.6; }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  /* SUMMARY ROW */
-  .summary-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 24px; }
-  .summary-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; text-align: center; box-shadow: var(--shadow-sm); }
-  .summary-label { font-size: 11px; color: var(--soft); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 5px; font-weight: 600; }
-  .summary-value { font-size: 18px; font-weight: 700; color: var(--text); }
-  .summary-sub   { font-size: 11px; color: var(--soft); margin-top: 2px; }
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
-  /* SECTION TITLE */
-  .section-title { font-size: 13px; font-weight: 700; color: var(--soft); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
-  /* BENEFIT CARD */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================================
+   3. HEADER
+   ============================================================ */
+
+header {
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  backdrop-filter: blur(10px);
+}
+
+.logo svg {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.header-text {
+  flex: 1;
+}
+
+.header-text h1 {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 2px;
+  letter-spacing: -0.3px;
+}
+
+.header-text p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Noto Sans Sinhala', sans-serif;
+}
+
+/* ============================================================
+   4. MAIN CONTENT
+   ============================================================ */
+
+main {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 28px 16px 80px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* ============================================================
+   5. HERO SECTIONS
+   ============================================================ */
+
+.hero-found {
+  background: linear-gradient(135deg, var(--green), #0d8a61);
+  border-radius: var(--radius);
+  padding: 30px 26px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+  box-shadow: 0 8px 24px rgba(15, 158, 110, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-found::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+  animation: rotate 20s linear infinite;
+}
+
+.hero-found > * {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-tick {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 30px;
+  animation: checkmark 0.8s ease-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hero-found h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.hero-found p {
+  font-size: 14px;
+  opacity: 0.95;
+  line-height: 1.5;
+}
+
+.hero-found .si {
+  font-family: 'Noto Sans Sinhala', sans-serif;
+  font-size: 14px;
+  opacity: 0.85;
+  margin-top: 6px;
+}
+
+.hero-none {
+  background: var(--gold-lt);
+  border: 1px solid #fcd34d;
+  border-radius: var(--radius);
+  padding: 28px 26px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.hero-none h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.hero-none p {
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   6. SUMMARY ROW
+   ============================================================ */
+
+.summary-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 24px;
+  animation: slideUp 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+.summary-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  animation: scaleIn 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.summary-card:nth-child(1) { animation-delay: 0.1s; }
+.summary-card:nth-child(2) { animation-delay: 0.2s; }
+.summary-card:nth-child(3) { animation-delay: 0.3s; }
+
+.summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(26, 86, 219, 0.15);
+}
+
+.summary-label {
+  font-size: 11px;
+  color: var(--soft);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.summary-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.summary-sub {
+  font-size: 11px;
+  color: var(--soft);
+  margin-top: 2px;
+}
+
+/* ============================================================
+   7. SECTION TITLE
+   ============================================================ */
+
+.section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--soft);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+  animation: slideInLeft 0.6s ease-out;
+}
+
+/* ============================================================
+   8. BENEFIT CARD
+   ============================================================ */
+
+.benefit-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  animation: slideUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.benefit-card:nth-child(1) { animation-delay: 0.1s; }
+.benefit-card:nth-child(2) { animation-delay: 0.2s; }
+.benefit-card:nth-child(3) { animation-delay: 0.3s; }
+.benefit-card:nth-child(4) { animation-delay: 0.4s; }
+
+.benefit-card:hover {
+  box-shadow: 0 8px 24px rgba(26, 86, 219, 0.12);
+  transform: translateY(-4px);
+}
+
+.benefit-card.priority {
+  border-left: 4px solid var(--green);
+}
+
+.benefit-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.benefit-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--blue-lt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+
+}
+
+.benefit-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+
+.benefit-name-si {
+  font-family: 'Noto Sans Sinhala', sans-serif;
+  font-size: 13px;
+  color: var(--soft);
+  margin-bottom: 6px;
+}
+
+.amount-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--green-lt);
+  color: var(--green-dark);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 700;
+ 
+}
+
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  background: var(--blue-lt);
+  color: var(--blue-dark);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 6px;
+ 
+}
+
+/* ============================================================
+   9. WHERE BOX
+   ============================================================ */
+
+.where-box {
+  background: var(--blue-lt);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  animation: slideUp 0.5s ease-out;
+}
+
+.where-box svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.where-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--blue-dark);
+  margin-bottom: 2px;
+}
+
+.where-text {
+  font-size: 13px;
+  color: var(--mid);
+}
+
+.hotline-text {
+  font-size: 12px;
+  color: var(--blue);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ============================================================
+   10. STEPS
+   ============================================================ */
+
+.steps-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--soft);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.step-item {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 9px;
+  align-items: flex-start;
+  animation: slideUp 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.step-item:nth-child(1) { animation-delay: 0.1s; }
+.step-item:nth-child(2) { animation-delay: 0.2s; }
+.step-item:nth-child(3) { animation-delay: 0.3s; }
+.step-item:nth-child(4) { animation-delay: 0.4s; }
+
+.step-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  animation: scaleIn 0.4s ease-out;
+}
+
+.step-txt {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.6;
+}
+
+.step-note {
+  background: var(--gold-lt);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--gold);
+  margin-top: 8px;
+  animation: slideUp 0.5s ease-out;
+}
+
+/* ============================================================
+   11. DIVIDER
+   ============================================================ */
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 24px 0;
+}
+
+/* ============================================================
+   12. DIVISIONAL SECRETARIAT CARD
+   ============================================================ */
+
+.ds-card {
+  background: var(--blue-lt);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  animation: slideUp 0.8s ease-out;
+  transition: var(--transition);
+  border: 1px solid var(--border);
+}
+
+.ds-card:hover {
+  box-shadow: 0 4px 12px rgba(26, 86, 219, 0.15);
+}
+
+.ds-card h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue-dark);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ds-card h3 svg {
+  animation: float 3s ease-in-out infinite;
+}
+
+.ds-card p {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+/* ============================================================
+   13. ACTION BUTTONS
+   ============================================================ */
+
+.wa-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #25d366, #1da851);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  animation: slideUp 0.8s ease-out;
+}
+
+.wa-btn:hover {
+  background: linear-gradient(135deg, #1da851, #0f7d39);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.wa-btn:active {
+  transform: translateY(0);
+}
+
+.back-btn {
+  width: 100%;
+  padding: 14px;
+  background: transparent;
+  color: var(--blue);
+  border: 1.5px solid var(--blue);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  transition: var(--transition);
+  animation: slideUp 0.9s ease-out;
+}
+
+.back-btn:hover {
+  background: var(--blue-lt);
+  transform: translateY(-2px);
+}
+
+.back-btn:active {
+  transform: translateY(0);
+}
+
+/* ============================================================
+   14. RESPONSIVE DESIGN
+   ============================================================ */
+
+@media (max-width: 620px) {
+  main {
+    padding: 20px 12px 60px;
+  }
+
+  .header-inner {
+    padding: 12px 16px;
+  }
+
+  .header-text h1 {
+    font-size: 16px;
+  }
+
+  .summary-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
   .benefit-card {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 22px;
-    margin-bottom: 14px; box-shadow: var(--shadow-sm);
+    padding: 18px 14px;
   }
-  .benefit-card.priority { border-left: 4px solid var(--green); }
-  .benefit-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
-  .benefit-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--blue-lt); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
-  .benefit-name   { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
-  .benefit-name-si { font-family: 'Noto Sans Sinhala', sans-serif; font-size: 13px; color: var(--soft); margin-bottom: 6px; }
-  .amount-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--green-lt); color: var(--green-dark); border-radius: 20px; padding: 4px 12px; font-size: 13px; font-weight: 700; }
-  .tier-badge { display: inline-flex; align-items: center; background: var(--blue-lt); color: var(--blue-dark); border-radius: 20px; padding: 4px 12px; font-size: 12px; font-weight: 600; margin-left: 6px; }
 
-  /* WHERE TO GO */
-  .where-box { background: var(--blue-lt); border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 14px; display: flex; gap: 12px; align-items: flex-start; }
-  .where-box svg { flex-shrink: 0; margin-top: 2px; }
-  .where-title { font-size: 12px; font-weight: 700; color: var(--blue-dark); margin-bottom: 2px; }
-  .where-text  { font-size: 13px; color: var(--mid); }
-  .hotline-text { font-size: 12px; color: var(--blue); font-weight: 600; margin-top: 2px; }
-
-  /* STEPS */
-  .steps-label { font-size: 11px; font-weight: 700; color: var(--soft); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; padding-top: 14px; border-top: 1px solid var(--border); }
-  .step-item { display: flex; gap: 10px; margin-bottom: 9px; align-items: flex-start; }
-  .step-num  { width: 24px; height: 24px; border-radius: 50%; background: var(--blue); color: white; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
-  .step-txt  { font-size: 13px; color: var(--mid); line-height: 1.6; }
-  .step-note { background: var(--gold-lt); border-radius: var(--radius-sm); padding: 8px 12px; font-size: 12px; color: var(--gold); margin-top: 8px; }
-
-  /* DIVIDER */
-  .divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
-
-  /* DS CARD */
-  .ds-card { background: var(--blue-lt); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 16px; }
-  .ds-card h3 { font-size: 14px; font-weight: 700; color: var(--blue-dark); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-  .ds-card p  { font-size: 13px; color: var(--mid); line-height: 1.5; margin-bottom: 4px; }
-
-  /* ACTION BUTTONS */
-  .wa-btn {
-    width: 100%; padding: 15px; background: #25D366; color: white;
-    border: none; border-radius: var(--radius-sm);
-    font-size: 15px; font-weight: 700; font-family: 'DM Sans', sans-serif;
-    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
-    margin-bottom: 10px; text-decoration: none;
+  .hero-found {
+    padding: 24px 18px;
   }
-  .wa-btn:hover { background: #1da851; }
+
+  .hero-found h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  .logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .logo svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .header-text h1 {
+    font-size: 14px;
+  }
+
+  .header-text p {
+    font-size: 11px;
+  }
+
+  .summary-row {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-card {
+    padding: 12px;
+  }
+
+  .summary-value {
+    font-size: 16px;
+  }
+
+  .benefit-card {
+    padding: 16px 12px;
+  }
+
+  .benefit-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .benefit-name {
+    font-size: 14px;
+  }
+}
+
+/* ============================================================
+   15. ACCESSIBILITY & PRINT
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  header {
+    box-shadow: none;
+  }
+
+  .wa-btn,
   .back-btn {
-    width: 100%; padding: 14px; background: transparent; color: var(--blue);
-    border: 1.5px solid var(--blue); border-radius: var(--radius-sm);
-    font-size: 14px; font-weight: 600; font-family: 'DM Sans', sans-serif;
-    cursor: pointer; text-align: center; text-decoration: none; display: block;
+    display: none;
   }
-  .back-btn:hover { background: var(--blue-lt); }
 
-  @media (max-width: 420px) {
-    .summary-row { grid-template-columns: 1fr 1fr; }
-    .benefit-card { padding: 18px 14px; }
+  body {
+    background: white;
   }
+}
 </style>
 </head>
 <body>
